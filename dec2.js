@@ -52,6 +52,3 @@ function decryptStrategy(inputs) {
 }
 
 module.exports = { scoreGame, decryptStrategy };
-const { dec2 } = require("./inputs");
-const input = dec2.split("\n").map((e) => e.split(" "));
-console.log(scoreGame(decryptStrategy(input)));
