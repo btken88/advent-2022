@@ -41,14 +41,23 @@ function smallDirectorySum(directories) {
 }
 
 function findSmallestDeletableDirectory(directories) {
-  let smallest = 0;
   const availableSpace = 70000000 - directories["/"];
   const spaceNeeded = 30000000 - availableSpace;
+  console.log(availableSpace, spaceNeeded);
+  let smallestSize = directories["/"];
+  let smallestDirectory;
+  for (const directory in directories) {
+    let value = directories[directory];
+    if (value >= spaceNeeded && value <= smallestSize) {
+      smallestSize = value;
+      smallestDirectory = directory;
+    }
+  }
+  return smallestSize;
 }
 
 module.exports = { formatFilesystemData, smallDirectorySum };
 
 const { dec7 } = require("./inputs");
 
-console.log(formatFilesystemData(dec7));
-console.log(smallDirectorySum(formatFilesystemData(dec7)));
+console.log(findSmallestDeletableDirectory(formatFilesystemData(dec7)));
