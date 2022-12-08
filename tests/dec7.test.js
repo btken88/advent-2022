@@ -1,4 +1,4 @@
-const { formatFilesystemData, smallDirectorySum } = require("./dec7");
+const { formatFilesystemData, smallDirectorySum } = require("../dec7");
 
 const testData = `$ cd /
 $ ls

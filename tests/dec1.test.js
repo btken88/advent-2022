@@ -1,4 +1,4 @@
-const { calories, topCalories } = require("./dec-1");
+const { calories, topCalories } = require("../dec-1");
 
 const testData = `1000
 2000

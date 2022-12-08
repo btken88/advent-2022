@@ -58,6 +58,6 @@ function findSmallestDeletableDirectory(directories) {
 
 module.exports = { formatFilesystemData, smallDirectorySum };
 
-const { dec7 } = require("./inputs");
+// const { dec7 } = require("./inputs");
 
-console.log(findSmallestDeletableDirectory(formatFilesystemData(dec7)));
+// console.log(findSmallestDeletableDirectory(formatFilesystemData(dec7)));

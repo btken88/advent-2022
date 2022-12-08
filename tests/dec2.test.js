@@ -1,4 +1,4 @@
-const { scoreGame, decryptStrategy } = require("./dec2");
+const { scoreGame, decryptStrategy } = require("../dec2");
 
 describe("dec2 tests", () => {
   const input = `A Y

@@ -1,4 +1,4 @@
-const { convertSteps, parseMove, parseMove9001 } = require("./dec5");
+const { convertSteps, parseMove, parseMove9001 } = require("../dec5");
 
 describe("dec 5th tests", () => {
   let testData1 = {
@@ -21,7 +21,9 @@ move 1 from 1 to 2`,
     ]);
   });
   test("returns correct solution for problem 1", () => {
-    expect(parseMove(testData1.start, convertSteps(testData1.steps))).toEqual("CMZ")
+    expect(parseMove(testData1.start, convertSteps(testData1.steps))).toEqual(
+      "CMZ"
+    );
   });
   let testData2 = {
     start: {
@@ -35,6 +37,8 @@ move 2 from 2 to 1
 move 1 from 1 to 2`,
   };
   test("returns correct solution for problem 2", () => {
-    expect(parseMove9001(testData2.start, convertSteps(testData2.steps))).toEqual("MCD")
+    expect(
+      parseMove9001(testData2.start, convertSteps(testData2.steps))
+    ).toEqual("MCD");
   });
 });
