@@ -109,7 +109,7 @@ function generateTestData(length) {
   }
   return dataString;
 }
-const { dec8 } = require("./inputs");
-console.log(findHighestScore(parseInput(dec8)));
+// const { dec8 } = require("./inputs");
+// console.log(findHighestScore(parseInput(dec8)));
 
 // console.log(generateTestData(9));
