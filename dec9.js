@@ -17,30 +17,40 @@ class MoveCalculator {
     this.calculateMoves();
   }
 
-  sameColumn() {
-    return this.headPosition[1] == this.tailPosition[1]
+  sameY() {
+    return this.headPosition[1] == this.tailPosition[1];
   }
 
-  sameRow() {
-    return this.headPosition[0] == this.tailPosition[0]
+  sameX() {
+    return this.headPosition[0] == this.tailPosition[0];
   }
 
   isAdjacent() {
     return (
-      (this.sameColumn() && this.sameRow() ||
-      (this.sameRow() &&
+      (this.sameY() && this.sameX()) ||
+      (this.sameX() &&
         Math.abs(this.headPosition[1] - this.tailPosition[1]) == 1) ||
-      (this.headPosition[1] == this.tailPosition[1] &&
+      (this.sameY() &&
         Math.abs(this.headPosition[0] - this.tailPosition[0]) == 1) ||
-      this.isDiagonallyAdjascent()
+      this.isDiagonallyAdjacent()
     );
   }
 
-  isDiagonallyAdjascent() {
+  isDiagonallyAdjacent() {
     return (
       Math.abs(this.headPosition[1] - this.tailPosition[1]) === 1 &&
       Math.abs(this.headPosition[0] - this.tailPosition[0]) === 1
     );
+  }
+
+  moveX() {
+    if (this.headPosition[0] > this.tailPosition[0]) this.tailPosition[0]++;
+    else this.tailPosition[0]--;
+  }
+
+  moveY() {
+    if (this.headPosition[1] - this.tailPosition[1] > 0) this.tailPosition[1]++;
+    else this.tailPosition[1]--;
   }
 
   calculateMoves() {
@@ -51,70 +61,23 @@ class MoveCalculator {
         if (direction === "D") this.headPosition[1]--;
         if (direction === "R") this.headPosition[0]++;
         if (direction === "U") this.headPosition[1]++;
-        // console.log(direction, i, this.headPosition, this.tailPosition);
         if (this.isAdjacent()) {
           this.addNode();
           continue;
         } else if (
-          // head and tail are in the same column - move y axis
-          this.headPosition[0] != this.tailPosition[0] &&
-          this.headPosition[1] == this.tailPosition[1]
+          // head and tail share y - move x axis
+          this.sameY()
         ) {
-          if (
-            Math.abs(this.headPosition[0] - this.tailPosition[0]) > 1 &&
-            this.headPosition[0] > this.tailPosition[0]
-          )
-            this.tailPosition[0]++;
-          else if (
-            Math.abs(this.headPosition[0] - this.tailPosition[0]) > 1 &&
-            this.headPosition[0] < this.tailPosition[0]
-          )
-            this.tailPosition[0]--;
+          this.moveX();
         } else if (
           // head and tail are in the same row - move x axis
-          this.headPosition[0] == this.tailPosition[0] &&
-          this.headPosition[1] != this.tailPosition[1]
+          this.sameX()
         ) {
-          if (
-            Math.abs(this.headPosition[1] - this.tailPosition[1]) > 1 &&
-            this.headPosition[1] - this.tailPosition[1] > 0
-          )
-            this.tailPosition[1]++;
-          else if (
-            Math.abs(this.headPosition[1] - this.tailPosition[1]) > 1 &&
-            this.headPosition[1] - this.tailPosition[1] > 0
-          )
-            this.tailPosition[1]--;
+          this.moveY();
         } else {
           //head and tail are in different column and row - move x and y
-          if (
-            this.headPosition[0] > this.tailPosition[0] &&
-            this.headPosition[1] > this.tailPosition[1]
-          ) {
-            this.tailPosition[0]++;
-            this.tailPosition[1]++;
-          }
-          if (
-            this.headPosition[0] < this.tailPosition[0] &&
-            this.headPosition[1] < this.tailPosition[1]
-          ) {
-            this.tailPosition[0]--;
-            this.tailPosition[1]--;
-          }
-          if (
-            this.headPosition[0] > this.tailPosition[0] &&
-            this.headPosition[1] < this.tailPosition[1]
-          ) {
-            this.tailPosition[0]++;
-            this.tailPosition[1]--;
-          }
-          if (
-            this.headPosition[0] < this.tailPosition[0] &&
-            this.headPosition[1] > this.tailPosition[1]
-          ) {
-            this.tailPosition[0]--;
-            this.tailPosition[1]++;
-          }
+          this.moveX();
+          this.moveY();
         }
         this.addNode();
       }
