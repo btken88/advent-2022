@@ -51,10 +51,10 @@ function topMonkeys(monkeyList) {
 
 module.exports = { monkeyBusiness, topMonkeys, longMonkeyBusiness };
 
-const { dec11 } = require("./inputs");
-const monkeyList = longMonkeyBusiness(dec11, 10000);
-const topMonkey = topMonkeys(monkeyList);
-console.log(topMonkey);
-console.log(topMonkey.first.inspections * topMonkey.second.inspections);
+// const { dec11 } = require("./inputs");
+// const monkeyList = longMonkeyBusiness(dec11, 10000);
+// const topMonkey = topMonkeys(monkeyList);
+// console.log(topMonkey);
+// console.log(topMonkey.first.inspections * topMonkey.second.inspections);
 
 //129090022456 wrong

@@ -158,7 +158,6 @@ describe("dec11th tests", () => {
       },
     ];
     const longMonkeyList = longMonkeyBusiness(structuredData, 10000);
-    console.log(longMonkeyList);
     expect(
       topMonkeys(longMonkeyList).first.inspections *
         topMonkeys(longMonkeyList).second.inspections

@@ -96,19 +96,19 @@ module.exports = {
   findHighestScore,
 };
 
-function generateTestData(length) {
-  let dataString = "";
-  for (let i = 0; i < length; i++) {
-    ``;
-    let data = "";
-    for (let j = 0; j < length; j++) {
-      data += Math.floor(Math.random() * 10);
-    }
-    if (i !== length - 1) data += "\n";
-    dataString += data;
-  }
-  return dataString;
-}
+// function generateTestData(length) {
+//   let dataString = "";
+//   for (let i = 0; i < length; i++) {
+//     ``;
+//     let data = "";
+//     for (let j = 0; j < length; j++) {
+//       data += Math.floor(Math.random() * 10);
+//     }
+//     if (i !== length - 1) data += "\n";
+//     dataString += data;
+//   }
+//   return dataString;
+// }
 // const { dec8 } = require("./inputs");
 // console.log(findHighestScore(parseInput(dec8)));
 

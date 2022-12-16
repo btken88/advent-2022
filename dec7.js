@@ -43,7 +43,6 @@ function smallDirectorySum(directories) {
 function findSmallestDeletableDirectory(directories) {
   const availableSpace = 70000000 - directories["/"];
   const spaceNeeded = 30000000 - availableSpace;
-  console.log(availableSpace, spaceNeeded);
   let smallestSize = directories["/"];
   let smallestDirectory;
   for (const directory in directories) {

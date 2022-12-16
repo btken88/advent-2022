@@ -98,10 +98,10 @@ class MoveCalculator {
 
 module.exports = { parseInput, MoveCalculator };
 
-const { dec9 } = require("./inputs");
-const formattedData = parseInput(dec9);
-const puzzleSolution = new MoveCalculator(formattedData);
-console.table(
-  puzzleSolution.moves[puzzleSolution.moves.length - 1].nodesVisited.length
-);
-console.log(Object.keys(puzzleSolution.visitedNodes).length);
+// const { dec9 } = require("./inputs");
+// const formattedData = parseInput(dec9);
+// const puzzleSolution = new MoveCalculator(formattedData);
+// console.table(
+//   puzzleSolution.moves[puzzleSolution.moves.length - 1].nodesVisited.length
+// );
+// console.log(Object.keys(puzzleSolution.visitedNodes).length);
